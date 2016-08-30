@@ -36,4 +36,17 @@ sudo ldconfig
 ##Deploy
 At this we've downloaded the files for guacserver.  We then installed these files by making the required files and linking them to your system.  Now we deploy those files by placing them in the correct directory.
 
-cp guacamole.war /var/lib/tomcat7/webapps
+sudo cp ~/guac-0.9.9.war /var/lib/tomcat7/webapps/guacamole.war
+
+sudo /etc/init.d/tomcat7 restart
+sudo /etc/init.d/guacd start
+
+sudo mkdir /etc/guacamole
+sudo mkdir /etc/guacamole/lib
+sudo mkdir /etc/guacamole/extensions
+
+sudo cp ~/guac-0.9.9.war /etc/guacamole/guacamole.war
+sudo ln -s /etc/guacamole/guacamole.war /var/lib/tomcat7/webapps/
+
+sudo touch /etc/guacamole/guacamole.properties
+sudo touch /etc/guacamole/user-mapping.xml
