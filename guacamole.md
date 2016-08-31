@@ -15,7 +15,18 @@ dpkg -i libjpeg-turbo-official_1.5.0_amd64.deb
 
 ## Install tomcat
 sudo apt-get install tomcat7
+## Install your Graphical Environment
+Believe it or not there was a time when the standard way to interact wiht a computer was through a command line.  When the first Graphical User Environments appeared you had to run them from the command line.  
 
+Since most servers are administered by people familiar with the CLI they don't come with a GUI pre-installed.  We'll install one now.
+
+sudo apt-get install gnome-core
+sudo apt-get install xfce4
+
+##Install VNC
+sudo apt-get install vnc4server
+##Install RDP
+sudo apt-get install xrdp
 **Get the server and .war files**
 wget -O guacserver-0.9.9.tar.gz http://sourceforge.net/projects/guacamole/files/current/source/guacamole-server-0.9.9.tar.gz
 
@@ -37,6 +48,7 @@ sudo ldconfig
 At this we've downloaded the files for guacserver.  We then installed these files by making the required files and linking them to your system.  Now we deploy those files by placing them in the correct directory.
 
 sudo cp ~/guac-0.9.9.war /var/lib/tomcat7/webapps/guacamole.war
+sudo ln -s /etc/guacamole/ /usr/share/tomcat7/.guacamole
 
 sudo /etc/init.d/tomcat7 restart
 sudo /etc/init.d/guacd start
