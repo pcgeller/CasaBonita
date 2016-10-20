@@ -1,8 +1,0 @@
-## Casa Bonita
-Documentation on setting up guacamole 0.9.9 on an AWS EC2 instance 
-running Ubuntu 14.04.
-
-Further work will be on server side scripts to force the display of 
-only the webbrowser.
-
-
